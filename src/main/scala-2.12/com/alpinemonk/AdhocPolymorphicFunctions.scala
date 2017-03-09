@@ -1,14 +1,11 @@
 package com.alpinemonk
 
-import com.alpinemonk.Domain.{Monastery, Monk}
+object AdHocPolymorphicFunctions {
 
-object AdhocPolymorphicFunctions {
-  def serialize(any: Any) = {
-    any match {
-      case monk: Monk =>
-        s"Monk(${monk.name}, ${monk.age})"
-      case monastery :Monastery =>
-        s"Monastery(${monastery.name}, (${monastery.availableFacilities mkString (",")}))"
-    }
+  trait Serializable[T] {
+    def serialize(t: T): String
   }
+
+  def serialize[T](t: T, s: Serializable[T]) = s.serialize(t)
+
 }
