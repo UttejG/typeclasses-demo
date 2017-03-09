@@ -1,8 +1,8 @@
 import com.alpinemonk.Domain.{Monastery, Monk}
 
 object Executor extends  App {
-  import AdhocPolymorphicFunctions._
+  import com.alpinemonk.AdhocPolymorphicFunctions._
 
-  println(serialize(Monk("Peter", 50)))
-  println(serialize(Monastery("Namgyal", Seq("Library", "Schools"))))
+  println((Monk("Peter", 50)).serialize)
+  println((Monastery("Namgyal", Seq("Library", "Schools"))).serialize)
 }
