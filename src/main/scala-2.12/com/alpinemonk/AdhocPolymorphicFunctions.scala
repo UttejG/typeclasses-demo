@@ -6,6 +6,6 @@ object AdHocPolymorphicFunctions {
     def serialize(t: T): String
   }
 
-  def serialize[T](t: T, s: Serializable[T]) = s.serialize(t)
+  def serialize[T](t: T)(implicit s: Serializable[T]) = s.serialize(t)
 
 }
